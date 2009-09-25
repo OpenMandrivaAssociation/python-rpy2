@@ -4,12 +4,12 @@
 
 Summary:	A very simple, yet robust, Python interface to the R Programming Language
 Name:		python-%{module}
-Version:	2.0.3
-Release:	%mkrel 2
+Version:	2.0.7
+Release:	%mkrel 1
 Group:		Development/Python
 License:	BSD-like
 URL:		http://rpy.sourceforge.net/
-Source0:	http://downloads.sourceforge.net/%{module}/%{module}-%{version}.tar.gz
+Source0:	http://pypi.python.org/packages/source/r/%{module}/%{module}-%{version}.tar.gz
 Requires:	R-base >= %{r_version}
 Requires:	python-numpy
 BuildRequires:	R-base >= %{r_version}
