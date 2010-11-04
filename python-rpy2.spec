@@ -46,6 +46,7 @@ env CFLAGS="%{optflags}" %{__python} setup.py build
 
 %install
 rm -rf %{buildroot}
+PYTHONDONTWRITEBYTECODE= \
 %{__python} setup.py install -O1 --skip-build --root %{buildroot} --record=INSTALLED_FILES
 
 # install info
