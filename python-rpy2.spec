@@ -4,7 +4,7 @@
 
 Summary:	A very simple, yet robust, Python interface to the R Programming Language
 Name:		python-%{module}
-Version:	2.0.8
+Version:	2.1.9
 Release:	%mkrel 1
 Group:		Development/Python
 License:	BSD-like
