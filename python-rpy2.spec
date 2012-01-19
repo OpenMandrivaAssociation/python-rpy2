@@ -4,20 +4,22 @@
 
 Summary:	A very simple, yet robust, Python interface to the R Programming Language
 Name:		python-%{module}
-Version:	2.1.9
+Version:	2.2.5
 Release:	%mkrel 1
 Group:		Development/Python
-License:	BSD-like
+License:	AGPLv3+
 URL:		http://rpy.sourceforge.net/
 Source0:	http://pypi.python.org/packages/source/r/%{module}/%{module}-%{version}.tar.gz
+Patch0:		rinterface-readline-2.2.5.patch
 Requires:	R-base >= %{r_version}
 Requires:	python-numpy
 BuildRequires:	R-base >= %{r_version}
 BuildRequires:	python-devel
 BuildRequires:	python-numpy-devel
-BuildRequires:	tetex-latex
+BuildRequires:	texlive-latex
 BuildRequires:	texinfo
 BuildRequires:	lapack-devel
+BuildRequires:	readline-devel
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
@@ -36,6 +38,7 @@ RPy are:
 
 %prep
 %setup -qn %{module}-%{version}
+%patch0 -p0
 
 %build
 env CFLAGS="%{optflags}" %{__python} setup.py build
