@@ -68,3 +68,32 @@ rm -rf %{buildroot}
 %files -f INSTALLED_FILES
 %defattr(-,root,root)
 %doc NEWS README
+
+
+%changelog
+* Thu Jan 19 2012 Lev Givon <lev@mandriva.org> 2.2.5-1
++ Revision: 762809
+- Update to 2.2.5.
+
+* Mon Nov 29 2010 Guillaume Rousse <guillomovitch@mandriva.org> 2.1.9-1mdv2011.0
++ Revision: 603073
+- update to new version 2.1.9
+
+* Fri Nov 05 2010 Paulo Andrade <pcpa@mandriva.com.br> 2.0.8-1mdv2011.0
++ Revision: 593536
+- Rebuild with python 2.7
+
+* Sun Jan 10 2010 Guillaume Rousse <guillomovitch@mandriva.org> 2.0.8-1mdv2010.1
++ Revision: 489192
+- update to new version 2.0.8
+
+* Fri Sep 25 2009 Frederik Himpe <fhimpe@mandriva.org> 2.0.7-1mdv2010.0
++ Revision: 449213
+- Update to new version 2.0.7
+
+* Wed Sep 16 2009 Paulo Andrade <pcpa@mandriva.com.br> 2.0.3-2mdv2010.0
++ Revision: 443339
+- Import python-rpy2 version 2.0.3
+- This was incorrectly named python-rpy
+- python-rpy2
+
