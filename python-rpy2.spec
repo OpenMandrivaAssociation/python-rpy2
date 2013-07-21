@@ -13,7 +13,6 @@ Source0:	http://pypi.python.org/packages/source/r/%{module}/%{module}-%{version}
 Patch0:		rinterface-readline-2.2.5.patch
 Requires:	python-numpy
 Requires:	R-core = %{r_version}
-BuildRequires:	gawk
 BuildRequires:	lapack-devel
 BuildRequires:	python-devel
 BuildRequires:	python-numpy-devel
