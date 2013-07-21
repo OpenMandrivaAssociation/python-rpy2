@@ -1,26 +1,24 @@
 %define module rpy2
-%define r_version 2.8.1
-%define _requires_exceptions libR.so
+%define r_version 3.0.1
+%define __noautoreq 'libR.so\\(.*'
 
 Summary:	A very simple, yet robust, Python interface to the R Programming Language
 Name:		python-%{module}
-Version:	2.2.5
-Release:	%mkrel 1
+Version:	2.3.6
+Release:	1
 Group:		Development/Python
 License:	AGPLv3+
 URL:		http://rpy.sourceforge.net/
 Source0:	http://pypi.python.org/packages/source/r/%{module}/%{module}-%{version}.tar.gz
 Patch0:		rinterface-readline-2.2.5.patch
-Requires:	R-base >= %{r_version}
 Requires:	python-numpy
-BuildRequires:	R-base >= %{r_version}
+Requires:	R-core = %{r_version}
+BuildRequires:	lapack-devel
 BuildRequires:	python-devel
 BuildRequires:	python-numpy-devel
-BuildRequires:	texlive-latex
-BuildRequires:	texinfo
-BuildRequires:	lapack-devel
+BuildRequires:	R-devel = %{r_version}
 BuildRequires:	readline-devel
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
+Provides:	rpy = %{EVRD}
 
 %description
 RPy is a very simple, yet robust, Python interface to the R Programming
@@ -43,57 +41,9 @@ RPy are:
 %build
 env CFLAGS="%{optflags}" %{__python} setup.py build
 
-#pushd doc
-#make all
-#popd
-
 %install
-rm -rf %{buildroot}
 PYTHONDONTWRITEBYTECODE= \
 %{__python} setup.py install -O1 --skip-build --root %{buildroot} --record=INSTALLED_FILES
 
-# install info
-#mkdir -p %{buildroot}%{_datadir}/info
-#cp doc/rpy.info %{buildroot}%{_datadir}/info/
-
-%clean
-rm -rf %{buildroot}
-
-%post
-#%_install_info rpy.info
-
-%preun
-#%_remove_install_info rpy.info
-
 %files -f INSTALLED_FILES
-%defattr(-,root,root)
 %doc NEWS README
-
-
-%changelog
-* Thu Jan 19 2012 Lev Givon <lev@mandriva.org> 2.2.5-1
-+ Revision: 762809
-- Update to 2.2.5.
-
-* Mon Nov 29 2010 Guillaume Rousse <guillomovitch@mandriva.org> 2.1.9-1mdv2011.0
-+ Revision: 603073
-- update to new version 2.1.9
-
-* Fri Nov 05 2010 Paulo Andrade <pcpa@mandriva.com.br> 2.0.8-1mdv2011.0
-+ Revision: 593536
-- Rebuild with python 2.7
-
-* Sun Jan 10 2010 Guillaume Rousse <guillomovitch@mandriva.org> 2.0.8-1mdv2010.1
-+ Revision: 489192
-- update to new version 2.0.8
-
-* Fri Sep 25 2009 Frederik Himpe <fhimpe@mandriva.org> 2.0.7-1mdv2010.0
-+ Revision: 449213
-- Update to new version 2.0.7
-
-* Wed Sep 16 2009 Paulo Andrade <pcpa@mandriva.com.br> 2.0.3-2mdv2010.0
-+ Revision: 443339
-- Import python-rpy2 version 2.0.3
-- This was incorrectly named python-rpy
-- python-rpy2
-
