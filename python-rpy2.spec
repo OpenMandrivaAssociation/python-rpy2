@@ -16,6 +16,7 @@ Requires:	R-core = %{r_version}
 BuildRequires:	lapack-devel
 BuildRequires:	python-devel
 BuildRequires:	python-numpy-devel
+BuildRequires:	R-core = %{r_version}
 BuildRequires:	R-devel = %{r_version}
 BuildRequires:	readline-devel
 Provides:	rpy = %{EVRD}
