@@ -1,11 +1,11 @@
 %define module rpy2
-%define r_version 3.0.1
+%define r_version 3.0.2
 %define __noautoreq 'libR.so\\(.*'
 
 Summary:	A very simple, yet robust, Python interface to the R Programming Language
 Name:		python-%{module}
 Version:	2.3.6
-Release:	1
+Release:	2
 Group:		Development/Python
 License:	AGPLv3+
 URL:		http://rpy.sourceforge.net/
