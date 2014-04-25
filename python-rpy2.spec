@@ -3,13 +3,14 @@
 %define __noautoreq 'libR.so\\(.*'
 
 Summary:	A very simple, yet robust, Python interface to the R Programming Language
+
 Name:		python-%{module}
-Version:	2.3.6
-Release:	2
+Version:	2.3.10
+Release:	1
 Group:		Development/Python
 License:	AGPLv3+
 URL:		http://rpy.sourceforge.net/
-Source0:	http://pypi.python.org/packages/source/r/%{module}/%{module}-%{version}.tar.gz
+Source0:	http://pypi.python.org/packages/source/r/rpy2/rpy2-%{version}.tar.gz
 Patch0:		rinterface-readline-2.2.5.patch
 Requires:	python-numpy
 Requires:	R-core = %{r_version}
@@ -40,11 +41,12 @@ RPy are:
 %patch0 -p0
 
 %build
-env CFLAGS="%{optflags}" %{__python} setup.py build
+env CFLAGS="%{optflags}" python setup.py build
 
 %install
 PYTHONDONTWRITEBYTECODE= \
-%{__python} setup.py install -O1 --skip-build --root %{buildroot} --record=INSTALLED_FILES
+python setup.py install -O1 --skip-build --root %{buildroot} --record=INSTALLED_FILES
 
 %files -f INSTALLED_FILES
 %doc NEWS README
+
