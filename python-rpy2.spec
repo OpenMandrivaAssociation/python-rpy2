@@ -1,5 +1,5 @@
 %define module rpy2
-%define r_version 3.0.2
+%define r_version 3.1.1
 %define __noautoreq 'libR.so\\(.*'
 
 Summary:	A very simple, yet robust, Python interface to the R Programming Language
@@ -18,7 +18,7 @@ BuildRequires:	lapack-devel
 BuildRequires:	python-devel
 BuildRequires:	python-numpy-devel
 BuildRequires:	R-core = %{r_version}
-BuildRequires:	R-devel = %{r_version}
+BuildRequires:	pkgconfig(libR) = %{r_version}
 BuildRequires:	readline-devel
 Provides:	rpy = %{EVRD}
 
