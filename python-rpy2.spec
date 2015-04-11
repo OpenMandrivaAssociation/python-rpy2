@@ -20,6 +20,9 @@ BuildRequires:	python-numpy-devel
 BuildRequires:	R-core = %{r_version}
 BuildRequires:	pkgconfig(libR) = %{r_version}
 BuildRequires:	readline-devel
+BuildRequires:	pkgconfig(icu-i18n)
+BuildRequires:	pkgconfig(liblzma)
+
 Provides:	rpy = %{EVRD}
 
 %description
