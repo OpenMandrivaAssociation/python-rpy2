@@ -21,6 +21,7 @@ BuildRequires:	pkgconfig(libR) = %{r_version}
 BuildRequires:	readline-devel
 BuildRequires:	pkgconfig(icu-i18n)
 BuildRequires:	pkgconfig(liblzma)
+BuildRequires:	python-setuptools
 
 Provides:	rpy = %{EVRD}
 
