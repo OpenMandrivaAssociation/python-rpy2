@@ -49,7 +49,8 @@ env CFLAGS="%{optflags}" python setup.py build build_ext -lreadline
 %install
 PYTHONDONTWRITEBYTECODE= \
 python setup.py install -O1 --skip-build --root %{buildroot} --record=INSTALLED_FILES
+sort -u INSTALLED_FILES -o INSTALLED_FILES
 
 %files -f INSTALLED_FILES
-%doc NEWS README
+%doc NEWS README.rst
 
