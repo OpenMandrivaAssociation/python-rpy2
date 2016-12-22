@@ -44,7 +44,7 @@ RPy are:
 %apply_patches
 
 %build
-env CFLAGS="%{optflags}" python setup.py build
+env CFLAGS="%{optflags}" python setup.py build build_ext -lreadline
 
 %install
 PYTHONDONTWRITEBYTECODE= \
