@@ -1,6 +1,7 @@
 %define module rpy2
 %define r_version 3.2.2
 %define __noautoreq 'libR.so\\(.*'
+%define _files_listed_twice_terminate_build 0
 
 Summary:	A very simple, yet robust, Python interface to the R Programming Language
 
@@ -49,7 +50,6 @@ env CFLAGS="%{optflags}" python setup.py build build_ext -lreadline
 %install
 PYTHONDONTWRITEBYTECODE= \
 python setup.py install -O1 --skip-build --root %{buildroot} --record=INSTALLED_FILES
-sort -u INSTALLED_FILES -o INSTALLED_FILES
 
 %files -f INSTALLED_FILES
 %doc NEWS README.rst
