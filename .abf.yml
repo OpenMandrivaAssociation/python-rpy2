@@ -1,4 +1,2 @@
-removed_sources:
-  rpy2-2.3.6.tar.gz: 5b497d49a2b777414de5ea07b2c57c14a6f65255
 sources:
-  rpy2-2.3.10.tar.gz: 382fba092dabf083cc791ec79a27a69460040e84
+  rpy2-2.8.5.tar.gz: 449bb7e1905a02e5549d822c56cca660b1e103f6

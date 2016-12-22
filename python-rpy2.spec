@@ -1,17 +1,16 @@
 %define module rpy2
-%define r_version 3.1.1
+%define r_version 3.2.2
 %define __noautoreq 'libR.so\\(.*'
 
 Summary:	A very simple, yet robust, Python interface to the R Programming Language
 
 Name:		python-%{module}
-Version:	2.3.10
-Release:	2
+Version:	2.8.5
+Release:	1
 Group:		Development/Python
 License:	AGPLv3+
 URL:		http://rpy.sourceforge.net/
 Source0:	http://pypi.python.org/packages/source/r/rpy2/rpy2-%{version}.tar.gz
-Patch0:		rinterface-readline-2.2.5.patch
 Requires:	python-numpy
 Requires:	R-core = %{r_version}
 BuildRequires:	lapack-devel
@@ -41,7 +40,7 @@ RPy are:
 
 %prep
 %setup -qn %{module}-%{version}
-%patch0 -p0
+%apply_patches
 
 %build
 env CFLAGS="%{optflags}" python setup.py build
