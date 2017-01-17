@@ -1,5 +1,5 @@
 %define module rpy2
-%define r_version 3.2.2
+%define r_version 3.2.5
 %define __noautoreq 'libR.so\\(.*'
 
 Summary:	A very simple, yet robust, Python interface to the R Programming Language
@@ -14,7 +14,7 @@ Source0:	http://pypi.python.org/packages/source/r/rpy2/rpy2-%{version}.tar.gz
 Requires:	python-numpy
 Requires:	R-core = %{r_version}
 BuildRequires:	lapack-devel
-BuildRequires:	python-devel
+BuildRequires:	python3-devel
 BuildRequires:	python-numpy-devel
 BuildRequires:	R-core = %{r_version}
 BuildRequires:	pkgconfig(libR) = %{r_version}
@@ -22,6 +22,9 @@ BuildRequires:	readline-devel
 BuildRequires:	pkgconfig(icu-i18n)
 BuildRequires:	pkgconfig(liblzma)
 BuildRequires:	python-setuptools
+BuildRequires:	python2-devel
+BuildRequires:	python2-setuptools
+BuildRequires:	python2-numpy-devel
 
 Provides:	rpy = %{EVRD}
 
@@ -38,18 +41,38 @@ RPy are:
  + the interface should be as transparent and easy to use as possible 
  + it should be usable for real scientific and statistical computations
  
+%package -n python2-%module
+Requires:	R-core = %{r_version}
+Requires:	python2-numpy
 
 %prep
 %setup -qn %{module}-%{version}
 %apply_patches
 
+rm -Rf %py2dir
+cp -a . %py2dir
+
 %build
 env CFLAGS="%{optflags}" python setup.py build build_ext -lreadline
 
+pushd %py2dir
+env CFLAGS="%{optflags}" python2 setup.py build build_ext -lreadline
+
 %install
 PYTHONDONTWRITEBYTECODE= \
-python setup.py install -O1 --skip-build --root %{buildroot} --record=INSTALLED_FILES
+python setup.py install -O1 --skip-build --root %{buildroot}
 
-%files -f INSTALLED_FILES
-%doc NEWS README
+pushd %py2dir
+PYTHONDONTWRITEBYTECODE= \
+python2 setup.py install -O1 --skip-build --root %{buildroot}
 
+
+%files
+%doc NEWS README.rst
+%py3_platsitedir/%{module}*.egg-info
+%py3_platsitedir/%module
+
+%files -n python2-%module
+%doc NEWS README.rst
+%py2_platsitedir/%{module}*.egg-info
+%py2_platsitedir/%module
