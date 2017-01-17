@@ -7,7 +7,7 @@ Summary:	A very simple, yet robust, Python interface to the R Programming Langua
 
 Name:		python-%{module}
 Version:	2.8.5
-Release:	1
+Release:	2
 Group:		Development/Python
 License:	AGPLv3+
 URL:		http://rpy.sourceforge.net/
