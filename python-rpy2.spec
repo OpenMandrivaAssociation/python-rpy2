@@ -3,13 +3,12 @@
 %define __noautoreq 'libR.so\\(.*'
 %define _files_listed_twice_terminate_build 0
 
-Summary:	A very simple, yet robust, Python interface to the R Programming Language
-
 Name:		python-%{module}
 Version:	2.8.5
 Release:	3
 Group:		Development/Python
 License:	AGPLv3+
+Summary:	A very simple, yet robust, Python interface to the R Programming Language
 URL:		http://rpy.sourceforge.net/
 Source0:	http://pypi.python.org/packages/source/r/rpy2/rpy2-%{version}.tar.gz
 Requires:	python-numpy
