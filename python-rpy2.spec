@@ -7,7 +7,7 @@ Name:		python-%{module}
 Version:	2.8.5
 Release:	3
 Group:		Development/Python
-Summary:	Python interface to the R language (embedded R)
+Summary:	A very simple, yet robust, Python interface to the R Programming Language
 License:	AGPLv3+
 URL: http://rpy.sourceforge.net/
 Source0:	http://pypi.python.org/packages/source/r/rpy2/rpy2-%{version}.tar.gz
@@ -42,6 +42,7 @@ RPy are:
  + it should be usable for real scientific and statistical computations
  
 %package -n python2-%module
+Summary: %{summary}
 Requires:	R-core = %{r_version}
 Requires:	python2-numpy
 
