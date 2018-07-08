@@ -1,11 +1,13 @@
 %define module rpy2
-%define r_version 3.2.5
+%define r_version 3.5.0
 %define __noautoreq 'libR.so\\(.*'
 %define _files_listed_twice_terminate_build 0
 
+# rpy2 2.8.6 is last version with support for python2. 2.9 branch support only Python3. For futre need build separate packages. (penguin)
+
 Name:		python-%{module}
-Version:	2.8.5
-Release:	3
+Version:	2.8.6
+Release:	1
 Group:		Development/Python
 Summary:	A very simple, yet robust, Python interface to the R Programming Language
 License:	AGPLv3+
@@ -25,6 +27,7 @@ BuildRequires:	python-setuptools
 BuildRequires:	python2-devel
 BuildRequires:	python2-setuptools
 BuildRequires:	python2-numpy-devel
+BuildRequires: python2-pkg-resources
 
 Provides:	rpy = %{EVRD}
 
