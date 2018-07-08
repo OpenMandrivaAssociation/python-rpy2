@@ -46,7 +46,7 @@ Summary: %{summary}
 Requires:	R-core = %{r_version}
 Requires:	python2-numpy
 
-%description -n python2-%{pypi_name}
+%description -n python2-%module
 This is the source tree or distribution for the rpy2 package.
 
 %prep
