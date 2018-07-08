@@ -3,8 +3,10 @@
 %define __noautoreq 'libR.so\\(.*'
 %define _files_listed_twice_terminate_build 0
 
+# rpy2 2.8.6 is last version with support for python2. 2.9 branch support only Python3. For futre need build separate packages. (penguin)
+
 Name:		python-%{module}
-Version:	2.9.4
+Version:	2.8.6
 Release:	1
 Group:		Development/Python
 Summary:	A very simple, yet robust, Python interface to the R Programming Language
