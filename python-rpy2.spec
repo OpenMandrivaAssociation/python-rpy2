@@ -25,6 +25,7 @@ BuildRequires:	python-setuptools
 BuildRequires:	python2-devel
 BuildRequires:	python2-setuptools
 BuildRequires:	python2-numpy-devel
+BuildRequires: python2-pkg-resources
 
 Provides:	rpy = %{EVRD}
 
