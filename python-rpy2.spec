@@ -4,8 +4,8 @@
 %define _files_listed_twice_terminate_build 0
 
 Name:		python-%{module}
-Version:	2.8.5
-Release:	3
+Version:	2.9.4
+Release:	1
 Group:		Development/Python
 Summary:	A very simple, yet robust, Python interface to the R Programming Language
 License:	AGPLv3+
