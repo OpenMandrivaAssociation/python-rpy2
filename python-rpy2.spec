@@ -1,5 +1,5 @@
 %define module rpy2
-%define r_version 3.2.5
+%define r_version 3.5.0
 %define __noautoreq 'libR.so\\(.*'
 %define _files_listed_twice_terminate_build 0
 
