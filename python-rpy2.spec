@@ -1,5 +1,5 @@
 %define module rpy2
-%define r_version 3.5.0
+%define r_version 3.5.1
 %define __noautoreq 'libR.so\\(.*'
 %define _files_listed_twice_terminate_build 0
 
@@ -7,7 +7,7 @@
 
 Name:		python-%{module}
 Version:	2.8.6
-Release:	1
+Release:	2
 Group:		Development/Python
 Summary:	A very simple, yet robust, Python interface to the R Programming Language
 License:	AGPLv3+
