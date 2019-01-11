@@ -6,13 +6,13 @@
 # rpy2 2.8.6 is last version with support for python2. 2.9 branch support only Python3. For futre need build separate packages. (penguin)
 
 Name:		python-%{module}
-Version:	2.8.6
-Release:	2
+Version:	2.9.5
+Release:	1
 Group:		Development/Python
 Summary:	A very simple, yet robust, Python interface to the R Programming Language
 License:	AGPLv3+
 URL: http://rpy.sourceforge.net/
-Source0:	http://pypi.python.org/packages/source/r/rpy2/rpy2-%{version}.tar.gz
+Source0:	https://pypi.io/packages/source/r/rpy2/rpy2-%{version}.tar.gz
 Requires:	python-numpy
 Requires:	R-core = %{r_version}
 BuildRequires:	lapack-devel
@@ -60,7 +60,7 @@ rm -Rf %py2dir
 cp -a . %py2dir
 
 %build
-env CFLAGS="%{optflags}" python setup.py build build_ext -lreadline
+env CFLAGS="%{optflags}" %py_build build_ext -lreadline
 
 pushd %py2dir
 env CFLAGS="%{optflags}" python2 setup.py build build_ext -lreadline
@@ -76,8 +76,8 @@ python2 setup.py install -O1 --skip-build --root %{buildroot}
 
 %files
 %doc NEWS README.rst
-%py3_platsitedir/%{module}*.egg-info
-%py3_platsitedir/%module
+%{py3_platsitedir}/%{module}*.egg-info
+%{py3_platsitedir}/%module
 
 %files -n python2-%module
 %doc NEWS README.rst
