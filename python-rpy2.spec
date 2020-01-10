@@ -54,7 +54,7 @@ This is the source tree or distribution for the rpy2 package.
 
 %prep
 %setup -qn %{module}-%{version}
-%apply_patches
+%autopatch -p1
 
 rm -Rf %py2dir
 cp -a . %py2dir
