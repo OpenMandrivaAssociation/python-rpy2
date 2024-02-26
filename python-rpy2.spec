@@ -1,13 +1,11 @@
 %define module rpy2
-%define r_version 3.5.1
+%define r_version %(pkg-config --modversion libR)
 %define __noautoreq 'libR.so\\(.*'
 %define _files_listed_twice_terminate_build 0
 
-# rpy2 2.8.6 is last version with support for python2. 2.9 branch support only Python3. For futre need build separate packages. (penguin)
-
 Name:		python-%{module}
-Version:	2.8.6
-Release:	2
+Version:	3.5.15
+Release:	1
 Group:		Development/Python
 Summary:	A very simple, yet robust, Python interface to the R Programming Language
 License:	AGPLv3+
@@ -18,16 +16,11 @@ Requires:	R-core = %{r_version}
 BuildRequires:	lapack-devel
 BuildRequires:	python3-devel
 BuildRequires:	python-numpy-devel
-BuildRequires:	R-core = %{r_version}
-BuildRequires:	pkgconfig(libR) = %{r_version}
+BuildRequires:	pkgconfig(libR)
 BuildRequires:	readline-devel
 BuildRequires:	pkgconfig(icu-i18n)
 BuildRequires:	pkgconfig(liblzma)
 BuildRequires:	python-setuptools
-BuildRequires:	python2-devel
-BuildRequires:	python2-setuptools
-BuildRequires:	python2-numpy-devel
-BuildRequires: python2-pkg-resources
 
 Provides:	rpy = %{EVRD}
 
@@ -44,42 +37,18 @@ RPy are:
  + the interface should be as transparent and easy to use as possible 
  + it should be usable for real scientific and statistical computations
  
-%package -n python2-%module
-Summary: %{summary}
-Requires:	R-core = %{r_version}
-Requires:	python2-numpy
-
-%description -n python2-%module
-This is the source tree or distribution for the rpy2 package.
-
 %prep
-%setup -qn %{module}-%{version}
-%autopatch -p1
-
-rm -Rf %py2dir
-cp -a . %py2dir
+%autosetup -n %{module}-%{version}
 
 %build
 env CFLAGS="%{optflags}" python setup.py build build_ext -lreadline
 
-pushd %py2dir
-env CFLAGS="%{optflags}" python2 setup.py build build_ext -lreadline
-
 %install
-PYTHONDONTWRITEBYTECODE= \
+PYTHONDONTWRITEBYTECODE=1 \
 python setup.py install -O1 --skip-build --root %{buildroot}
 
-pushd %py2dir
-PYTHONDONTWRITEBYTECODE= \
-python2 setup.py install -O1 --skip-build --root %{buildroot}
-
-
 %files
-%doc NEWS README.rst
+%doc NEWS README.md
 %py3_platsitedir/%{module}*.egg-info
 %py3_platsitedir/%module
-
-%files -n python2-%module
-%doc NEWS README.rst
-%py2_platsitedir/%{module}*.egg-info
-%py2_platsitedir/%module
+%py3_platsitedir/_rinterface_cffi_*
