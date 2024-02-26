@@ -1,5 +1,5 @@
 %define module rpy2
-%define r_version %(pkg-config --modversion libR)
+%define r_version %(pkg-config --modversion libR || echo 0)
 %define __noautoreq 'libR.so\\(.*'
 %define _files_listed_twice_terminate_build 0
 
