@@ -21,6 +21,7 @@ BuildRequires:	readline-devel
 BuildRequires:	pkgconfig(icu-i18n)
 BuildRequires:	pkgconfig(liblzma)
 BuildRequires:	python-setuptools
+BuildRequires:	python-cffi
 
 Provides:	rpy = %{EVRD}
 
