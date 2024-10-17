@@ -9,7 +9,7 @@ Release:	1
 Group:		Development/Python
 Summary:	A very simple, yet robust, Python interface to the R Programming Language
 License:	AGPLv3+
-URL: http://rpy.sourceforge.net/
+URL: https://rpy.sourceforge.net/
 Source0:	http://pypi.python.org/packages/source/r/rpy2/rpy2-%{version}.tar.gz
 Requires:	python-numpy
 Requires:	R-core = %{r_version}
