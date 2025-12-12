@@ -5,7 +5,7 @@
 
 Name:		python-%{module}
 Version:	3.5.15
-Release:	1
+Release:	2
 Group:		Development/Python
 Summary:	A very simple, yet robust, Python interface to the R Programming Language
 License:	AGPLv3+
