@@ -4,8 +4,8 @@
 %define _files_listed_twice_terminate_build 0
 
 Name:		python-%{module}
-Version:	3.5.15
-Release:	3
+Version:	3.6.7
+Release:	1
 Group:		Development/Python
 Summary:	A very simple, yet robust, Python interface to the R Programming Language
 License:	AGPLv3+
@@ -39,7 +39,7 @@ RPy are:
  + it should be usable for real scientific and statistical computations
  
 %prep
-%autosetup -n %{module}-%{version}
+%autosetup -n rpy2-3.6.7
 
 %build
 env CFLAGS="%{optflags}" python setup.py build build_ext -lreadline
